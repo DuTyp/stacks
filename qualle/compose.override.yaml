@@ -1,0 +1,5 @@
+services:
+  tailscale-sc:
+    hostname: ${NAME}
+  jelly:
+    container_name: ${CNAME}

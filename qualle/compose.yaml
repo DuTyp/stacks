@@ -1,0 +1,21 @@
+include:
+  - ../sidecar/compose.yaml #TS-sidecar (tailscale-sc) service
+
+services:
+  jelly:
+    image: jellyfin/jellyfin
+    container_name: jellyfin
+    volumes: 
+      - ./config:/config
+      - ./cache:/cache
+      #- type: bind
+      #  source: /path/to/media
+      #  target: /media
+      #- type: bind
+      #  source: /path/to/media2
+      #  target: /media2
+      #  read_only: true
+    network_mode: "service:tailscale-sc"
+    depends_on: 
+      - tailscale-sc
+    restart: unless-stopped

@@ -1,0 +1,22 @@
+include:
+  - ../sidecar/compose.yaml #TS-sidecar (tailscale-sc) service
+
+services:
+  stirling-pdf:
+    image: docker.stirlingpdf.com/stirlingtools/stirling-pdf:latest
+    #ports:
+     # - '8080:8080'
+    volumes:
+      - ./StirlingPDF/trainingData:/usr/share/tessdata # Required for extra OCR languages
+      - ./StirlingPDF/extraConfigs:/configs
+      - ./StirlingPDF/customFiles:/customFiles/
+      - ./StirlingPDF/logs:/logs/
+      - ./StirlingPDF/pipeline:/pipeline/
+    environment:
+      - DISABLE_ADDITIONAL_FEATURES=false
+      - LANGS=en_GB
+      - LANGS=de_DE
+    network_mode: "service:tailscale-sc"
+    depends_on: 
+      - tailscale-sc
+    restart: unless-stopped
