@@ -3,7 +3,7 @@ services:
     image: tailscale/tailscale:latest
     container_name: sidecar
     env_file:
-     - ./ts-authkey.env
+     - ./ts_authkey.env
     environment:
     # - TS_AUTHKEY=tskey-auth-kqL7m8uByA11CNTRL-sWxGJHDYWbNfWKU68WLtaN1vt6XCD8ZRM #bereits verwendet
     # - TS_CUBE_SECRET=/run/secrets/ts_authkey
