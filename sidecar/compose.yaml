@@ -2,8 +2,10 @@ services:
   tailscale-sc:
     image: tailscale/tailscale:latest
     hostname: sidecar
+    env_file:
+     - ./ts-authkey.env
     environment:
-     - TS_AUTHKEY=tskey-auth-kqL7m8uByA11CNTRL-sWxGJHDYWbNfWKU68WLtaN1vt6XCD8ZRM #bereits verwendet
+    # - TS_AUTHKEY=tskey-auth-kqL7m8uByA11CNTRL-sWxGJHDYWbNfWKU68WLtaN1vt6XCD8ZRM #bereits verwendet
     # - TS_CUBE_SECRET=/run/secrets/ts_authkey
      - TS_STATE_DIR=/var/lib/tailscale
      - TS_USERSPACE=false
