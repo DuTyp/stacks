@@ -3,4 +3,4 @@ services:
     hostname: ${NAME}
     container_name: ${TS_CNAME}
   jelly:
-    container_name: ${CNAME}
+    container_name: ${VID_CNAME}

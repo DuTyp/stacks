@@ -1,0 +1,12 @@
+include:
+  - ./qualle/compose.yaml # jellyfin compose mit ts-sidecar
+  - ./stirling/compose.yaml # stirling-pdf compose mit ts-sidecar
+services:
+  tailscale-sc:
+    hostname: ${NAME}
+    container_name: ${TS_CNAME}
+  jelly:
+    container_name: ${VID_CNAME}
+  stirling-pdf:
+    container_name: ${PDF_CNAME}
+

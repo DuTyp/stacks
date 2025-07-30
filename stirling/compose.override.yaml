@@ -3,4 +3,4 @@ services:
     hostname: ${NAME}
     container_name: ${TS_CNAME}
   stirling-pdf:
-    container_name: ${CNAME}
+    container_name: ${PDF_CNAME}
